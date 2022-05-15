@@ -1,5 +1,5 @@
 <template>
-  <main class="home">Sport app description</main>
+  <main class="home">СПОРТ, ФІЗО І ДИКИЙ КАЧ - НАС СПАСЕ ВІД НЕУДАЧ :)</main>
 </template>
 
 <script>
