@@ -10,10 +10,23 @@ export default {
   components: { ExercisesList },
   data: () => ({
     exercises: [
-      { name: 'Присідання' },
-      { name: 'Присідання з вагою' },
-      { name: 'Присідання з прижками' },
-      { name: 'Випади' },
+      {
+        name: 'Присідання',
+        count: '0',
+      },
+      {
+        name: 'Присідання з вагою',
+        count: '',
+        weight: '0',
+      },
+      {
+        name: 'Присідання з прижками',
+        count: '0',
+      },
+      {
+        name: 'Випади',
+        count: '0',
+      },
     ],
   }),
 };
