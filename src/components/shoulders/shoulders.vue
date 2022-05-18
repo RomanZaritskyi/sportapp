@@ -1,33 +1,25 @@
 <template>
-  <ExercisesList :exercises="exercises" />
+  <ExercisesList :exercises="exercises" @addEx="addEx" />
+  <SelectedExercisesList :addedExs="addedExs" />
 </template>
 
 <script>
 import ExercisesList from '../shared/exercises-list.vue';
+import SelectedExercisesList from '../shared/selected-exercises-list.vue';
+import shouldersExercise from '../lookups/shouldersExercise.lookup';
 
 export default {
   name: 'shoulders-temp',
-  components: { ExercisesList },
+  components: { ExercisesList, SelectedExercisesList },
   data: () => ({
-    exercises: [
-      {
-        name: 'Віджиманя ∠90°',
-        count: '',
-      },
-      {
-        name: 'Махи в сторони',
-        count: '',
-      },
-      {
-        name: 'Махи вперед',
-        count: '',
-      },
-      {
-        name: 'Махи в наклоні',
-        count: '',
-      },
-    ],
+    exercises: shouldersExercise,
+    addedExs: [],
   }),
+  methods: {
+    addEx(exs) {
+      this.addedExs.push(exs);
+    },
+  },
 };
 </script>
 <style></style>

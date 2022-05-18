@@ -1,33 +1,25 @@
 <template>
-  <ExercisesList :exercises="exercises" />
+  <ExercisesList :exercises="exercises" @addEx="addEx" />
+  <SelectedExercisesList :addedExs="addedExs" />
 </template>
 
 <script>
 import ExercisesList from '../shared/exercises-list.vue';
+import SelectedExercisesList from '../shared/selected-exercises-list.vue';
+import abbExercise from '../lookups/abbExercises.lookup';
 
 export default {
-  components: { ExercisesList },
   name: 'abb-temp',
+  components: { ExercisesList, SelectedExercisesList },
   data: () => ({
-    exercises: [
-      {
-        name: 'Підйом нін на турніку',
-        count: '',
-      },
-      {
-        name: 'Підйом колін на турніку',
-        count: '',
-      },
-      {
-        name: 'Підйом нін на брусах',
-        count: '',
-      },
-      {
-        name: 'Підйом колін на брусах',
-        count: '',
-      },
-    ],
+    exercises: abbExercise,
+    addedExs: [],
   }),
+  methods: {
+    addEx(exs) {
+      this.addedExs.push(exs);
+    },
+  },
 };
 </script>
 <style></style>
