@@ -1,8 +1,7 @@
 <template>
   <div class="exercise-list list-group">
-    <a
-      href="#"
-      class="list-group-item list-group-item-action"
+    <div
+      class="exercise-list-group list-group-item"
       v-for="(exercise, idx) in exercises"
       :key="idx"
     >
@@ -10,38 +9,21 @@
         {{ exercise.name }}
       </span>
 
-      <div class="input-group mb-3">
-        <span class="input-group-text" id="inputGroup-sizing-default"
-          >К-сть</span
-        >
-        <input
-          v-model="exercise.count"
-          type="text"
-          class="form-control"
-          aria-label="Sizing example input"
-          aria-describedby="inputGroup-sizing-default"
-        />
-      </div>
-
-      <div class="input-group mb-3">
-        <span class="input-group-text" id="inputGroup-sizing-default"
-          >Вага</span
-        >
-        <input
-          v-model="exercise.weight"
-          type="text"
-          class="form-control"
-          aria-label="Sizing example input"
-          aria-describedby="inputGroup-sizing-default"
-        />
-      </div>
-    </a>
+      <button
+        type="button"
+        class="btn btn-light"
+        @click="$emit('addEx', exercise)"
+      >
+        +
+      </button>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: 'exercises-list',
+  emits: ['addEx'],
   props: {
     exercises: {
       type: Array,
@@ -50,4 +32,11 @@ export default {
   },
 };
 </script>
-<style></style>
+
+<style lang="scss" scoped>
+.exercise-list-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+</style>

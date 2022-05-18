@@ -1,34 +1,25 @@
 <template>
-  <ExercisesList :exercises="exercises" />
+  <ExercisesList :exercises="exercises" @addEx="addEx" />
+  <SelectedExerciseList :addedExs="addedExs" />
 </template>
 
 <script>
 import ExercisesList from '../shared/exercises-list.vue';
+import SelectedExerciseList from '../shared/selected-exercises-list.vue';
+import legsExercise from '../lookups/legsExercises.lookup.js';
 
 export default {
   name: 'legs-temp',
-  components: { ExercisesList },
+  components: { ExercisesList, SelectedExerciseList },
   data: () => ({
-    exercises: [
-      {
-        name: 'Присідання',
-        count: '0',
-      },
-      {
-        name: 'Присідання з вагою',
-        count: '',
-        weight: '0',
-      },
-      {
-        name: 'Присідання з прижками',
-        count: '0',
-      },
-      {
-        name: 'Випади',
-        count: '0',
-      },
-    ],
+    exercises: legsExercise,
+    addedExs: [],
   }),
+  methods: {
+    addEx(exs) {
+      this.addedExs.push(exs);
+    },
+  },
 };
 </script>
 <style></style>

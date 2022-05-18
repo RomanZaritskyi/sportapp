@@ -1,38 +1,25 @@
 <template>
-  <ExercisesList :exercises="exercises" />
+  <ExercisesList :exercises="exercises" @addEx="addEx" />
+  <SelectedExercisesList :addedExs="addedExs" />
 </template>
 
 <script>
 import ExercisesList from '../shared/exercises-list.vue';
+import backExercises from '../lookups/backExercises.lookup';
+import SelectedExercisesList from '../shared/selected-exercises-list.vue';
 
 export default {
   name: 'back-temp',
-  components: { ExercisesList },
+  components: { ExercisesList, SelectedExercisesList },
   data: () => ({
-    exercises: [
-      {
-        name: 'Широкі підтягування',
-        count: '',
-      },
-      {
-        name: 'Середні підтягування',
-        count: '',
-      },
-      {
-        name: 'Вузькі підтягування',
-        count: '',
-      },
-      {
-        name: 'Зворотні підтягування',
-        count: '',
-      },
-      {
-        name: 'Підтягування з вагою',
-        count: '',
-        weight: '0',
-      },
-    ],
+    exercises: backExercises,
+    addedExs: [],
   }),
+  methods: {
+    addEx(exs) {
+      this.addedExs.push(exs);
+    },
+  },
 };
 </script>
 <style></style>
