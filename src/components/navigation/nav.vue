@@ -55,10 +55,12 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.navbar {
-  position: fixed;
-  z-index: 1;
-}
+// .navbar {
+//   position: fixed;
+//   z-index: 1;
+//   top: 0;
+//   width: 100%;
+// }
 .navbar__logo {
   font-weight: 800;
 }

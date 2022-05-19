@@ -1,16 +1,17 @@
 import { createWebHistory, createRouter } from 'vue-router';
-import Home from '../components/Home.vue';
+// import Home from '../components/Home.vue';
 import Legs from '../components/legs/legs.vue';
 import Back from '../components/back/back.vue';
 import Chest from '../components/chest/chest.vue';
 import Shoulders from '../components/shoulders/shoulders.vue';
 import Abb from '../components/abb/abb.vue';
+import MusculGroup from '../components/navigation/muscul-group.vue';
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home,
+    name: 'musculGroup',
+    component: MusculGroup,
   },
   {
     path: '/legs',

@@ -1,14 +1,16 @@
 <template>
   <Nav />
+  <MusculGroup />
   <router-view></router-view>
 </template>
 
 <script>
 import Nav from './components/navigation/nav.vue';
+import MusculGroup from './components/navigation/muscul-group.vue';
 
 export default {
   name: 'App',
-  components: { Nav },
+  components: { Nav, MusculGroup },
 };
 </script>
 
